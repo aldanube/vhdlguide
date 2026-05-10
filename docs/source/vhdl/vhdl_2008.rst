@@ -1,0 +1,86 @@
+VHDL-2008 Features
+==================
+
+The VHDL-2008 standard (IEEE 1076-2008) introduced several significant improvements that make the language more concise, flexible, and powerful. Most modern synthesis and simulation tools (Vivado, Quartus, ModelSim) have strong support for VHDL-2008.
+
+-----------------------
+1. Simplified Sensitivity Lists
+-----------------------
+
+Instead of listing every signal in a combinational process, you can use the keyword `all`.
+
+.. code-block:: vhdl
+
+   -- Before 2008
+   process (a, b, c, d, sel)
+   -- VHDL-2008
+   process (all)
+   begin
+       -- ...
+   end process;
+
+-----------------------
+2. Enhanced Logic Operators
+-----------------------
+
+VHDL-2008 allows unary logical operators for reduction, similar to Verilog.
+
+.. code-block:: vhdl
+
+   -- Returns '1' if any bit in the vector is '1'
+   any_bit_high <= or data_vector;
+
+-----------------------
+3. Better Generic Support
+-----------------------
+
+- **Generics in Packages**: You can now define generics for entire packages.
+- **Generic Types**: You can pass a **type** as a generic parameter to a module.
+
+-----------------------
+4. External Names (Hierarchical References)
+-----------------------
+
+VHDL-2008 allows you to access signals deep within the design hierarchy from your testbench using external names. This is extremely useful for verification without adding extra ports to every module.
+
+.. code-block:: vhdl
+
+   alias probe_sig : std_logic is << signal .tb.uut.sub_inst.internal_sig : std_logic >>;
+
+-----------------------
+5. Fixed and Floating Point Packages
+-----------------------
+
+VHDL-2008 includes standardized packages for fixed-point (`fixed_pkg`) and floating-point (`float_pkg`) arithmetic, which were previously vendor-specific or required external libraries.
+
+-----------------------
+6. Simplified I/O and Strings
+-----------------------
+
+Improvements to the `textio` package and the ability to use string expressions in port maps make testbench development much smoother.
+
+-----------------------
+7. Logical Operators for `std_logic_vector`
+-----------------------
+
+Previously, operators like `and` or `or` between two `std_logic_vector` signals required a loop or a conversion. In VHDL-2008, these work as expected.
+
+.. code-block:: vhdl
+
+   res <= vec_a and vec_b; -- Bitwise AND
+
+-----------------------
+Enabling VHDL-2008
+-----------------------
+
+To use these features, you must tell your synthesis or simulation tool to use the VHDL-2008 standard.
+- **Vivado**: Set the file type to "VHDL 2008" in the file properties.
+- **ModelSim**: Use the `-2008` flag with `vcom`.
+- **GHDL**: Use the `--std=08` flag.
+
+-----------------------
+Further Reading
+-----------------------
+
+For more hardware design tutorials, visit **Agus L. Setiawan** at `Technolati.com <https://www.technolati.com/>`_.
+
