@@ -1,6 +1,7 @@
 .. meta::
    :description: Comprehensive VHDL Design Guide covering HDL basics, RTL design, FSMs, and FPGA implementation.
    :keywords: VHDL, HDL, FPGA, ASIC, RTL Design, Digital Logic
+   :google-site-verification: qoIbJvneR1qPFrl5BRBgcN0RggPZzu5QMp6-Bhl0XGg
 
 FPGA Designs with VHDL
 ======================
