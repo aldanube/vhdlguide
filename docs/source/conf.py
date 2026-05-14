@@ -17,7 +17,6 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
-    'sphinx_sitemap',
     'sphinx_copybutton',
     'sphinx_design',
     'sphinxext.opengraph',
@@ -34,19 +33,6 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
-import os
-
-html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://vhdlguide.readthedocs.io/en/latest/")
-
-# ReadTheDocs overrides html_baseurl, so we must inject the version path via the scheme
-rtd_lang = os.environ.get("READTHEDOCS_LANGUAGE", "en")
-rtd_version = os.environ.get("READTHEDOCS_VERSION", "latest")
-sitemap_url_scheme = f"{rtd_lang}/{rtd_version}/{{link}}"
-
-sitemap_excludes = [
-    'search.html',
-    'genindex.html',
-]
 
 html_static_path = ['_static']
 html_css_files = [
