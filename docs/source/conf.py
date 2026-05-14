@@ -34,8 +34,12 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
-html_baseurl = 'https://vhdlguide.readthedocs.io/'
+html_baseurl = 'https://vhdlguide.readthedocs.io/en/latest/'
 sitemap_url_scheme = "{link}"
+sitemap_excludes = [
+    'search.html',
+    'genindex.html',
+]
 
 html_static_path = ['_static']
 html_css_files = [
