@@ -34,8 +34,15 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
-html_baseurl = 'https://vhdlguide.readthedocs.io/en/latest/'
-sitemap_url_scheme = "{link}"
+import os
+
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://vhdlguide.readthedocs.io/")
+
+# ReadTheDocs overrides html_baseurl, so we must inject the version path via the scheme
+rtd_lang = os.environ.get("READTHEDOCS_LANGUAGE", "en")
+rtd_version = os.environ.get("READTHEDOCS_VERSION", "latest")
+sitemap_url_scheme = f"{rtd_lang}/{rtd_version}/{{link}}"
+
 sitemap_excludes = [
     'search.html',
     'genindex.html',
