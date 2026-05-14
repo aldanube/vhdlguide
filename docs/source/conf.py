@@ -36,7 +36,7 @@ templates_path = ['_templates']
 html_theme = 'sphinx_rtd_theme'
 import os
 
-html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://vhdlguide.readthedocs.io/")
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "https://vhdlguide.readthedocs.io/en/latest/")
 
 # ReadTheDocs overrides html_baseurl, so we must inject the version path via the scheme
 rtd_lang = os.environ.get("READTHEDOCS_LANGUAGE", "en")
